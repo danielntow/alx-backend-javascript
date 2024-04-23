@@ -1,1 +1,1 @@
-# alx-backend-javascript
+# alx-backend-JAVASCRIPT
