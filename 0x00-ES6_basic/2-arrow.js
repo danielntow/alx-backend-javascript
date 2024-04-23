@@ -1,10 +1,11 @@
 // 2-arrow.js
 
-export default function getNeighborhoodsList () {
-  this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
+export default function getNeighborhoodsList() {
+  this.sanFranciscoNeighborhoods = ["SOMA", "Union Square"];
 
-  this.addNeighborhood = (newNeighborhood) => { // Using arrow function
+  this.addNeighborhood = (newNeighborhood) => {
+    // Using arrow function
     this.sanFranciscoNeighborhoods.push(newNeighborhood);
     return this.sanFranciscoNeighborhoods;
   };
-};
+}
