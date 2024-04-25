@@ -4,3 +4,8 @@ try.js
 try.html
 prom.js
 **/mine/
+package.json
+package-lock.json
+utils.json
+.eslintrc.js
+babel.config.js
