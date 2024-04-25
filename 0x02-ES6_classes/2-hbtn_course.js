@@ -1,4 +1,11 @@
-class HolbertonCourse {
+/**
+ * Represents a Holberton course.
+ * @class HolbertonCourse
+ * @property {string} name - The name of the course.
+ * @property {number} length - The length of the course.
+ * @property {Array<string>} students - The students enrolled in the course.
+ */
+export default class HolbertonCourse {
   constructor(name, length, students) {
     this.name = name;
     this.length = length;
@@ -10,7 +17,7 @@ class HolbertonCourse {
    */
   set name(name) {
     if (typeof name !== "string") {
-      throw new TypeError('Name must be a string');
+      throw new TypeError("Name must be a string");
     }
     this._name = name;
   }
@@ -24,7 +31,7 @@ class HolbertonCourse {
    */
   set length(length) {
     if (typeof length !== "number") {
-      throw new TypeError('Length must be a number');
+      throw new TypeError("Length must be a number");
     }
     this._length = length;
   }
@@ -40,7 +47,7 @@ class HolbertonCourse {
     if (students instanceof Array) {
       this._students = students;
     } else {
-      throw new TypeError('Students must be an Array');
+      throw new TypeError("Students must be an Array");
     }
   }
 
@@ -48,5 +55,3 @@ class HolbertonCourse {
     return this._students;
   }
 }
-
-export default HolbertonCourse;
