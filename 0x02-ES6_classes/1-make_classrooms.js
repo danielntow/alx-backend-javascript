@@ -1,7 +1,12 @@
 import ClassRoom from './0-classroom';
 
+/**
+ * Initializes an array of ClassRoom instances with different sizes.
+ *
+ * @returns {ClassRoom[]} An array of ClassRoom instances.
+ */
 export default function initializeRooms() {
-  const sizes = [19, 20, 34];
-  const rooms = sizes.map((size) => new ClassRoom(size));
-  return rooms;
-};
+    const array = [new ClassRoom(19), new ClassRoom(20), new ClassRoom(34)];
+
+    return array;
+  }
