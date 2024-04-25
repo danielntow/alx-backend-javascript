@@ -1,35 +1,35 @@
-export default class Currency{
+/**
+ * Represents a currency with a code and name.
+ */
+export default class Currency {
+  constructor(code, name) {
+    this._code = code;
+    this._name = name;
+  }
 
-    constructor(code , name ){
-        this._code = code;
-        this._name = name;
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (typeof value !== "string") {
+      throw new TypeError("Name must be a string");
     }
+    this._name = value;
+  }
 
+  get code() {
+    return this._code;
+  }
 
-    get name(){
-        return this._name;
+  set code(value) {
+    if (typeof value !== "string") {
+      throw new TypeError("code must be a string");
     }
+    this._name = value;
+  }
 
-    set name(value){
-        if (typeof value !== 'string'){
-            throw new TypeError("Name must be a string");
-        }
-        this._name = value;
-    }
-
-    get code(){
-        return this._code;
-    }
-
-    set code(value){
-        if (typeof value !== 'string'){
-            throw new TypeError("code must be a string");
-        }
-        this._name = value;
-    }
-
-    displayFullCurrency(){
-    return (`${this._name} (${this._code})`)
-    }
-
+  displayFullCurrency() {
+    return `${this._name} (${this._code})`;
+  }
 }
