@@ -9,3 +9,9 @@ package-lock.json
 utils.json
 .eslintrc.js
 babel.config.js
+
+**package.json
+**package-lock.json
+**utils.json
+**.eslintrc.js
+**babel.config.js
