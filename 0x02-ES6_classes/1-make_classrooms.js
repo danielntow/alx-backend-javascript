@@ -6,7 +6,5 @@ import ClassRoom from './0-classroom';
  * @returns {ClassRoom[]} An array of ClassRoom instances.
  */
 export default function initializeRooms() {
-    const array = [new ClassRoom(19), new ClassRoom(20), new ClassRoom(34)];
-
-    return array;
-  }
+  return ([new ClassRoom(19), new ClassRoom(20), new ClassRoom(34)]);
+}
