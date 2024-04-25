@@ -1,6 +1,7 @@
 /**
  * Represents a currency with a code and name.
  */
+
 export default class Currency {
   constructor(code, name) {
     this._code = code;
