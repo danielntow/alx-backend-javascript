@@ -7,21 +7,10 @@
  * @throws {Error} Throws an error if a class extending `Building` does not
  *     override the `evacuationWarningMessage` method.
  */
-class Building {
+export default class Building {
   constructor (sqft) {
-    if (this.constructor !== Building) {
-      if (typeof this.evacuationWarningMessage !== 'function') {
-        throw new Error(
-          'Class extending Building must override evacuationWarningMessage'
-        )
-      }
-    }
-    this.sqft = sqft
-  }
-
-  set sqft (sqft) {
-    if (typeof sqft !== 'number') {
-      throw new TypeError('sqft nust be a number')
+    if (this.constructor === Building) {
+      throw new Error('Building is an abstract class and cannot be instantiated directly.')
     }
     this._sqft = sqft
   }
@@ -29,6 +18,15 @@ class Building {
   get sqft () {
     return this._sqft
   }
-}
 
-export default Building
+  set sqft (value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('sqft must be a Number')
+    }
+    this._sqft = value
+  }
+
+  evacuationWarningMessage () {
+    throw new Error('Class extending Building must override evacuationWarningMessage')
+  }
+}
