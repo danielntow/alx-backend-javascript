@@ -1,7 +1,7 @@
 export default class HolbertonClass {
   constructor(size, location) {
-    this._size = size; 
-    this._location = location; 
+    this._size = size;
+    this._location = location;
   }
 
   get size() {
@@ -9,6 +9,9 @@ export default class HolbertonClass {
   }
 
   set size(value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('Size must be a Number')
+    }
     this._size = value;
   }
 
@@ -17,11 +20,14 @@ export default class HolbertonClass {
   }
 
   set location(value) {
+    if (typeof value !== 'string') {
+      throw new TypeError('Location must be a String')
+    }
     this._location = value;
   }
 
   valueOf() {
-    return this._size; 
+    return this._size;
   }
 
   toString() {
