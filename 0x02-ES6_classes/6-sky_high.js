@@ -1,24 +1,17 @@
-import Building from './5-building';
-
-export default class SkyHighBuilding extends Building {
-  constructor(sqft, floors) {
-    super(sqft);
-    if (typeof floors !== 'number') throw new Error('floors must be a number');
-    this._floors = floors;
+export default class HolbertonClass {
+  constructor(size, location) {
+    if (typeof size !== 'number' || typeof location !== 'string') throw new Error('size must be a number and location a string');
+    this._size = size;
+    this._location = location;
   }
 
-  // getter for floors
-  get floors() {
-    return (this._floors);
+  // override number casting
+  valueOf() {
+    return (this._size);
   }
 
-  // setter for floors
-  set floors(floorsNum) {
-    if (typeof floorsNum !== 'number') throw new Error('floors must be a number');
-    this._floors = floorsNum;
-  }
-
-  evacuationWarningMessage() {
-    return (`Evacuate slowly the ${this.floors} floors`);
+  // override string casting
+  toString() {
+    return (this._location);
   }
 }
