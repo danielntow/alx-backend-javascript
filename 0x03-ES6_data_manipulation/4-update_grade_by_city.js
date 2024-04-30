@@ -3,21 +3,18 @@ export default function updateStudentGradeByCity(studentsList, city, newGrades) 
     return [];
   }
 
-  // Create a map of grades for quick lookup by studentId
-  const gradeMap = new Map();
-  newGrades.forEach(({ studentId, grade }) => {
-    gradeMap.set(studentId, grade);
+  // Filter students for the specific city
+  const filteredStudents = studentsList.filter((student) => student.location === city);
+
+  // Map through the filtered students and update their grades if available in newGrades
+  const updatedStudents = filteredStudents.map((student) => {
+    const matchingGrade = newGrades.find((gradeObj) => gradeObj.studentId === student.id);
+    if (matchingGrade) {
+      return { ...student, grade: matchingGrade.grade };
+    } else {
+      return { ...student, grade: 'N/A' };
+    }
   });
 
-  // Update grades for students in the specified city
-  return studentsList.map((student) => {
-    if (student.location === city) {
-      const grade = gradeMap.get(student.id);
-      return {
-        ...student,
-        grade: grade !== undefined ? grade : 'N/A',
-      };
-    }
-    return student;
-  });
+  return updatedStudents;
 }
