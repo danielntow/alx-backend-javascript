@@ -1,21 +1,20 @@
-function cleanSet(set, startString) {
-    let result = '';
-
-    // Iterate over each value in the set
-    set.forEach(value => {
-      // Check if the value starts with the specified startString
-      if (value.startsWith(startString)) {
-        // Append the substring after the startString to the result string
-        result += value.substring(startString.length) + '-';
-      }
-    });
-
-    // Remove the trailing '-' if any
-    if (result.endsWith('-')) {
-      result = result.slice(0, -1);
-    }
-
-    return result;
+export default function cleanSet(set, startString) {
+  if (
+    !set && !startString && !(set instanceof Set) && typeof startString !== 'string'
+  ) {
+    return '';
   }
 
-  export default cleanSet;
+  const parts = [];
+
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      const valueSubStr = value.substring(startString.length);
+
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
+      }
+    }
+  }
+  return parts.join('-');
+}
