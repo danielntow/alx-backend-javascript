@@ -1,17 +1,25 @@
-// test suite for express server module wih endpoint that returns welcome message
-/* eslint-disable jest/prefer-expect-assertions */
-/* eslint-disable jest/expect-expect */
-const request = require('request');
-const chai = require('chai');
+// api.test.js
 
-describe('basic integration test', () => {
-  const API_URL = 'http://localhost:7865';
-  
-  it('check correct response message', () => new Promise((done) => {
-    request.get(`${API_URL}/`, (_err, res, body) => {
-      chai.expect(res.statusCode).to.be.equal(200);
-      chai.expect(body).to.be.equal('Welcome to the payment system');
+const chai = require('chai');
+const expect = chai.expect;
+const request = require('request');
+
+describe('Index page', function() {
+  const url = 'http://localhost:7865';
+
+  it('Correct status code?', function(done) {
+    request.get(url, function(error, response, body) {
+      expect(response.statusCode).to.equal(200);
       done();
     });
-  }));
+  });
+
+  it('Correct result?', function(done) {
+    request.get(url, function(error, response, body) {
+      expect(body).to.equal('Welcome to the payment system');
+      done();
+    });
+  });
+
+  // Additional tests can be added as needed
 });
