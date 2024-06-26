@@ -9,17 +9,24 @@ describe('Index page', function() {
 
   it('Correct status code?', function(done) {
     request.get(url, function(error, response, body) {
-      expect(response.statusCode).to.equal(200);
-      done();
+      if (error) {
+        done(error); // Pass any error to Mocha
+      } else {
+        expect(response && response.statusCode).to.equal(200);
+        done(); // Finish the test
+      }
     });
   });
 
   it('Correct result?', function(done) {
     request.get(url, function(error, response, body) {
-      expect(body).to.equal('Welcome to the payment system');
-      done();
+      if (error) {
+        done(error); // Pass any error to Mocha
+      } else {
+        expect(body).to.equal('Welcome to the payment system');
+        done(); // Finish the test
+      }
     });
   });
 
-  // Additional tests can be added as needed
 });
