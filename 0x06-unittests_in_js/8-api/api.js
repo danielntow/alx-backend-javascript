@@ -1,11 +1,15 @@
+// module containing endpoint that returns welcome message on express server
 const express = require('express');
+
 const app = express();
-const PORT = 7865;
+const port = 7865;
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the payment system');
+app.get('/', (_, message) => {
+  message.send('Welcome to the payment system');
 });
 
-app.listen(PORT, () => {
-  console.log(`API available on localhost port ${PORT}`);
+app.listen(port, () => {
+  console.log(`API available on localhost port ${port}`);
 });
+
+module.exports = app;
